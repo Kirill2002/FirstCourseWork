@@ -1,0 +1,93 @@
+﻿<Window x:Class="CourseWork.Views.EditCriminalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="EditCriminalWindow" Height="550.526" Width="627.062">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="firstNameTextBox" materialDesign:HintAssist.Hint="Ім'я"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="lastNameTextBox" materialDesign:HintAssist.Hint="Прізвище"  HorizontalAlignment="Center"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="nickNameTextBox" materialDesign:HintAssist.Hint="Прізвисько"  HorizontalAlignment="Center"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="heightTextBox" materialDesign:HintAssist.Hint="Зріст"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="hairColorTextBox" materialDesign:HintAssist.Hint="Колір волосся"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="eyeColorTextBox" materialDesign:HintAssist.Hint="Колір очей"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="distinctiveFeaturesTextBox" materialDesign:HintAssist.Hint="Особливі прикмети"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="citizenshipTextBox" materialDesign:HintAssist.Hint="Громадянство"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="4" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="birthPlaceTextBox" materialDesign:HintAssist.Hint="Місце народження"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="birthDateTextBox" materialDesign:HintAssist.Hint="Дата народження"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="5" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="lastDomicileTextBox" materialDesign:HintAssist.Hint="Останнє місце проживання"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="criminalSpecializationTextBox" materialDesign:HintAssist.Hint="Кримінальна професія"   HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="6" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="lastCaseTextBox" materialDesign:HintAssist.Hint="Остання справа"  HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="languagesTextBox" materialDesign:HintAssist.Hint="Мови" AcceptsReturn="True"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+
+        <Image x:Name="criminalImage" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="20">
+
+        </Image>
+
+        <Button x:Name="changeImageButton" Content="Завантажити картинку" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="20 10 20 10" Click="changeImageButton_Click"></Button>
+
+        <Button x:Name="editCriminalButton" Grid.Row="7" Grid.Column="3" Content="Зберегти" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="editCriminalButton_Click"/>
+
+    </Grid>
+</Window>

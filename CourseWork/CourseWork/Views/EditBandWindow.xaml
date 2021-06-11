@@ -1,0 +1,49 @@
+﻿<Window x:Class="CourseWork.Views.EditBandWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="EditBandWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Назва"  HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="occupationTextBox" materialDesign:HintAssist.Hint="Рід діяльності"  HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+            <TextBox x:Name="listOfMembersTextBox" materialDesign:HintAssist.Hint="Список членів"  HorizontalAlignment="Center" Height="23" AcceptsReturn="True" TextWrapping="Wrap"  VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox x:Name="additionalInfoTextBox" materialDesign:HintAssist.Hint="Додаткова інформація" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+
+
+        <Button x:Name="editBandButton" Grid.Row="7" Grid.Column="3" Content="Зберегти" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="editBandButton_Click"/>
+
+    </Grid>
+</Window>

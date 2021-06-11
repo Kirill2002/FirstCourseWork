@@ -1,0 +1,29 @@
+﻿<Window x:Class="CourseWork.Views.Authorisation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Authorisation" Height="312.374" Width="425.151" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+
+
+            <Border x:Name="usernameTextBoxBorder" CornerRadius="5" Margin="0 60 0 20" Width="154">
+                <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="Ім'я користувача" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" />
+            </Border>
+
+            <Border x:Name="passwordBoxBorder" CornerRadius="5" Margin="30" Width="154">
+                <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="Пароль" VerticalAlignment="Top" Width="150"/>
+            </Border>
+            <StackPanel Orientation="Horizontal" Margin="0 30 0 0">
+                <Button x:Name="registrationButton" HorizontalAlignment="Left" Margin="20 0 50 0" Width="150" Content="Реєстрація" Click="registrationButton_Click"></Button>
+                <Button x:Name="authorisationButton"  HorizontalAlignment="Right" Margin="50 0 30 0" Width="120" Content="Вхід" Click="authorisationButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>

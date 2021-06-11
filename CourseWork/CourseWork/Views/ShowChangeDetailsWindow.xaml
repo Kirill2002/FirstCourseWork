@@ -1,0 +1,94 @@
+﻿<Window x:Class="CourseWork.Views.ShowChangeDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ShowChangeDetailsWindow"  Height="660.084" Width="704.929">
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="firstTextBlock" HorizontalAlignment="Center"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="secondTextBlock"   HorizontalAlignment="Center"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="thirdTextBlock"   HorizontalAlignment="Center"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="fourthTextBlock"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="hairColorTextBlock"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="eyeColorTextBlock"    HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="distinctiveFeaturesTextBlock"   HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="citizenshipTextBlock"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="4" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="birthPlaceTextBlock"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="birthDateTextBlock"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="5" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="lastDomicileTextBlock" HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="criminalSpecializationTextBlock"  HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="6" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="lastCaseTextBlock" HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </StackPanel>
+
+
+        <ScrollViewer Grid.Row="6" Grid.Column="1">
+            <TextBlock x:Name="languagesTextBlock"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </ScrollViewer>
+
+        <Border x:Name="borderCriminalImage" BorderThickness="4" BorderBrush="Transparent" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="20">
+            <Image x:Name="criminalImage"  MouseEnter="criminalImage_MouseEnter" MouseLeave="criminalImage_MouseLeave">
+
+            </Image>
+        </Border>
+
+        <Button x:Name="okButton" Grid.Row="7" Grid.Column="3" Content="Ок" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="okButton_Click"/>
+
+    </Grid>
+</Window>
