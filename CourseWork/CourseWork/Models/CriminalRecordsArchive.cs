@@ -41,15 +41,15 @@ namespace CourseWork.Models
 
             }else if(change.Type == ChangeType.MoveBackFromArchive)
             {
-                int i = 0;
+                int i;
                 for (i = 0; i < Records.Count; ++i)
                 {
                     if (Records[i].ID == change.RecordID)
                     {
-                        CriminalRecordsDatabase crims_db = new CriminalRecordsDatabase();
-                        crims_db = (CriminalRecordsDatabase)crims_db.Load();
-                        crims_db.Records.Add(Records[i]);
-                        crims_db.Save();
+                        CriminalRecordsDatabase crimsDB = new CriminalRecordsDatabase();
+                        crimsDB = (CriminalRecordsDatabase)crimsDB.Load();
+                        crimsDB.Records.Add(Records[i]);
+                        crimsDB.Save();
                         Records.RemoveAt(i);
                         --i;
                         break;

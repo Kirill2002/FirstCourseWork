@@ -23,12 +23,12 @@ namespace CourseWork
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CriminalRecordsDatabase crims_db;
-        private BandRecordsDatabase bands_db;
-        private CriminalRecordsArchive crims_arch;
+        private CriminalRecordsDatabase crimsDB;
+        private BandRecordsDatabase bandsDB;
+        private CriminalRecordsArchive crimsArchive;
         private Session session;
-        private UsersDatabase users_db;
-        private RecordChangesDatabase changes_db;
+        private UsersDatabase usersDB;
+        private RecordChangesDatabase changesDB;
         private RecordChangesArchive changesArchive;
 
         public MainWindow()
@@ -42,16 +42,16 @@ namespace CourseWork
             if (!Directory.Exists(path_data_dir) || Directory.GetFiles(path_data_dir).Length == 0)
             {
                 UsersDatabase udb = new UsersDatabase();
-                CriminalRecordsDatabase crims_db = new CriminalRecordsDatabase();
-                BandRecordsDatabase bands_db = new BandRecordsDatabase();
-                CriminalRecordsArchive crims_arch = new CriminalRecordsArchive();
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
+                CriminalRecordsDatabase crimsDB = new CriminalRecordsDatabase();
+                BandRecordsDatabase bandsDB = new BandRecordsDatabase();
+                CriminalRecordsArchive crimsArchive = new CriminalRecordsArchive();
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
                 RecordChangesArchive changesArchive = new RecordChangesArchive();
                 udb.Save();
-                crims_db.Save();
-                bands_db.Save();
-                crims_arch.Save();
-                changes_db.Save();
+                crimsDB.Save();
+                bandsDB.Save();
+                crimsArchive.Save();
+                changesDB.Save();
                 changesArchive.Save();
             }
             string path_img = Environment.CurrentDirectory + "\\" + Constants.IMAGES_PATH;
@@ -203,14 +203,14 @@ namespace CourseWork
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(crims_db != null)
-                crims_db.Save();
-            if (crims_arch != null)
-                crims_arch.Save();
-            if (bands_db != null)
-                bands_db.Save();
-            if (users_db != null)
-                users_db.Save();
+            if(crimsDB != null)
+                crimsDB.Save();
+            if (crimsArchive != null)
+                crimsArchive.Save();
+            if (bandsDB != null)
+                bandsDB.Save();
+            if (usersDB != null)
+                usersDB.Save();
             if (changesArchive != null)
                 changesArchive.Save();
             Console.WriteLine("Closed!");
@@ -220,40 +220,40 @@ namespace CourseWork
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            if(crims_db != null)
+            if(crimsDB != null)
             {
-                crims_db = (CriminalRecordsDatabase)crims_db.Load();
+                crimsDB = (CriminalRecordsDatabase)crimsDB.Load();
 
-                criminalsDataGrid.ItemsSource = crims_db.Records;
+                criminalsDataGrid.ItemsSource = crimsDB.Records;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsDataGrid.ItemsSource);
                 filterCriminalsComboBox.ItemsSource = CriminalRecord.ListOfProperties;
                 view.Filter = UserFilterCrims;
-            }else if(bands_db != null)
+            }else if(bandsDB != null)
             {
-                bands_db = (BandRecordsDatabase)bands_db.Load();
-                bandsDataGrid.ItemsSource = bands_db.Records;
+                bandsDB = (BandRecordsDatabase)bandsDB.Load();
+                bandsDataGrid.ItemsSource = bandsDB.Records;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(bandsDataGrid.ItemsSource);
                 filterBandsComboBox.ItemsSource = BandRecord.ListOfProperties;
                 view.Filter = UserFilterBands;
 
-            }else if(crims_arch != null)
+            }else if(crimsArchive != null)
             {
-                crims_arch = (CriminalRecordsArchive)crims_arch.Load();
-                criminalsArchiveDataGrid.ItemsSource = crims_arch.Records;
+                crimsArchive = (CriminalRecordsArchive)crimsArchive.Load();
+                criminalsArchiveDataGrid.ItemsSource = crimsArchive.Records;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsArchiveDataGrid.ItemsSource);
                 filterCriminalsArchiveComboBox.ItemsSource = CriminalRecord.ListOfProperties;
                 view.Filter = UserFilterCrimsArchive;
-            }else if(users_db != null)
+            }else if(usersDB != null)
             {
-                users_db = (UsersDatabase)users_db.Load();
-                usersDataGrid.ItemsSource = users_db.Users;
+                usersDB = (UsersDatabase)usersDB.Load();
+                usersDataGrid.ItemsSource = usersDB.Users;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(usersDataGrid.ItemsSource);
                 filterUsersComboBox.ItemsSource = User.ListOfProperties;
                 view.Filter = UserFilterUsers;
-            }else if(changes_db != null)
+            }else if(changesDB != null)
             {
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changesDataGrid.ItemsSource = changes_db.RecordChanges;
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDataGrid.ItemsSource = changesDB.RecordChanges;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(changesDataGrid.ItemsSource);
                 filterChangesComboBox.ItemsSource = RecordChange.ListOfProperties;
                 view.Filter = UserFilterChanges;
@@ -283,12 +283,12 @@ namespace CourseWork
 
         private void Criminals_Selected(object sender, RoutedEventArgs e)
         {
-            crims_db = new CriminalRecordsDatabase();
+            crimsDB = new CriminalRecordsDatabase();
             //db_crims.Save();
 
-            crims_db = (CriminalRecordsDatabase)crims_db.Load();
+            crimsDB = (CriminalRecordsDatabase)crimsDB.Load();
 
-            criminalsDataGrid.ItemsSource = crims_db.Records;
+            criminalsDataGrid.ItemsSource = crimsDB.Records;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsDataGrid.ItemsSource);
             filterCriminalsComboBox.ItemsSource = CriminalRecord.ListOfProperties;
             view.Filter = UserFilterCrims;
@@ -296,15 +296,15 @@ namespace CourseWork
 
         private void Criminals_Unselected(object sender, RoutedEventArgs e)
         {
-            crims_db.Save();
-            crims_db = null;
+            crimsDB.Save();
+            crimsDB = null;
         }
 
         private void ChangesConfirm_Selected(object sender, RoutedEventArgs e)
         {
-            changes_db = new RecordChangesDatabase();
-            changes_db = (RecordChangesDatabase)changes_db.Load();
-            changesDataGrid.ItemsSource = changes_db.RecordChanges;
+            changesDB = new RecordChangesDatabase();
+            changesDB = (RecordChangesDatabase)changesDB.Load();
+            changesDataGrid.ItemsSource = changesDB.RecordChanges;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(changesDataGrid.ItemsSource);
             filterChangesComboBox.ItemsSource = RecordChange.ListOfProperties;
             view.Filter = UserFilterChanges;
@@ -312,8 +312,8 @@ namespace CourseWork
 
         private void ChangesConfirm_Unselected(object sender, RoutedEventArgs e)
         {
-            changes_db.Save();
-            changes_db = null;
+            changesDB.Save();
+            changesDB = null;
         }
 
         private void addCriminalButton_Click(object sender, RoutedEventArgs e)
@@ -324,9 +324,9 @@ namespace CourseWork
 
         private void Bands_Selected(object sender, RoutedEventArgs e)
         {
-            bands_db = new BandRecordsDatabase();
-            bands_db = (BandRecordsDatabase)bands_db.Load();
-            bandsDataGrid.ItemsSource = bands_db.Records;
+            bandsDB = new BandRecordsDatabase();
+            bandsDB = (BandRecordsDatabase)bandsDB.Load();
+            bandsDataGrid.ItemsSource = bandsDB.Records;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(bandsDataGrid.ItemsSource);
             filterBandsComboBox.ItemsSource = BandRecord.ListOfProperties;
             view.Filter = UserFilterBands;
@@ -334,20 +334,20 @@ namespace CourseWork
             //List<CriminalRecord> mems = new List<CriminalRecord>();
             //mems.Add(new CriminalRecord(firstName: "Денис", lastName: "Рябцев"));
             //mems.Add(new CriminalRecord(firstName: "Денис", lastName: "Рябцев"));
-            //bands_db.Records.Add(new BandRecord(name: "NURE", occupation: "Hacking", additionalInfo: "", members: mems));
+            //bandsDB.Records.Add(new BandRecord(name: "NURE", occupation: "Hacking", additionalInfo: "", members: mems));
         }
 
         private void Bands_Unselected(object sender, RoutedEventArgs e)
         {
-            bands_db.Save();
-            bands_db = null;
+            bandsDB.Save();
+            bandsDB = null;
         }
 
         private void Users_Selected(object sender, RoutedEventArgs e)
         {
-            users_db = new UsersDatabase();
-            users_db = (UsersDatabase)users_db.Load();
-            usersDataGrid.ItemsSource = users_db.Users;
+            usersDB = new UsersDatabase();
+            usersDB = (UsersDatabase)usersDB.Load();
+            usersDataGrid.ItemsSource = usersDB.Users;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(usersDataGrid.ItemsSource);
             filterUsersComboBox.ItemsSource = User.ListOfProperties;
             view.Filter = UserFilterUsers;
@@ -355,8 +355,8 @@ namespace CourseWork
 
         private void Users_Unselected(object sender, RoutedEventArgs e)
         {
-            users_db.Save();
-            users_db = null;
+            usersDB.Save();
+            usersDB = null;
         }
 
         private void filterBandsTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -426,9 +426,9 @@ namespace CourseWork
 
         private void Archive_Selected(object sender, RoutedEventArgs e)
         {
-            crims_arch = new CriminalRecordsArchive();
-            crims_arch = (CriminalRecordsArchive)crims_arch.Load();
-            criminalsArchiveDataGrid.ItemsSource = crims_arch.Records;
+            crimsArchive = new CriminalRecordsArchive();
+            crimsArchive = (CriminalRecordsArchive)crimsArchive.Load();
+            criminalsArchiveDataGrid.ItemsSource = crimsArchive.Records;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsArchiveDataGrid.ItemsSource);
             filterCriminalsArchiveComboBox.ItemsSource = CriminalRecord.ListOfProperties;
             view.Filter = UserFilterCrimsArchive;
@@ -436,8 +436,8 @@ namespace CourseWork
 
         private void Archive_Unselected(object sender, RoutedEventArgs e)
         {
-            crims_arch.Save();
-            crims_arch = null;
+            crimsArchive.Save();
+            crimsArchive = null;
         }
 
         private void ChangesArchive_Selected(object sender, RoutedEventArgs e)
@@ -463,20 +463,20 @@ namespace CourseWork
 
             if(session.User.Role == UserRole.Admin)
             {
-                crims_db.Change(change);
-                crims_db.Save();
+                crimsDB.Change(change);
+                crimsDB.Save();
             }
             else
             {
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changes_db.Add(change);
-                changes_db.Save();
-                changes_db = null;
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDB.Add(change);
+                changesDB.Save();
+                changesDB = null;
             }
 
 
-            criminalsDataGrid.ItemsSource = crims_db.Records;
+            criminalsDataGrid.ItemsSource = crimsDB.Records;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsDataGrid.ItemsSource);
             filterCriminalsComboBox.ItemsSource = CriminalRecord.ListOfProperties;
             view.Filter = UserFilterCrims;
@@ -489,19 +489,19 @@ namespace CourseWork
 
             if (session.User.Role == UserRole.Admin)
             {
-                crims_arch.Change(change);
-                crims_arch.Save();
+                crimsArchive.Change(change);
+                crimsArchive.Save();
             }
             else
             {
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changes_db.Add(change);
-                changes_db.Save();
-                changes_db = null;
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDB.Add(change);
+                changesDB.Save();
+                changesDB = null;
             }
 
-            criminalsArchiveDataGrid.ItemsSource = crims_arch.Records;
+            criminalsArchiveDataGrid.ItemsSource = crimsArchive.Records;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(criminalsArchiveDataGrid.ItemsSource);
             filterCriminalsArchiveComboBox.ItemsSource = CriminalRecord.ListOfProperties;
             view.Filter = UserFilterCrimsArchive;
@@ -526,38 +526,38 @@ namespace CourseWork
 
             if ((changesDataGrid.SelectedItem as RecordChange).Destination == ChangeDestination.CriminalsDatabase)
             {
-                crims_db = new CriminalRecordsDatabase();
-                crims_db = (CriminalRecordsDatabase)crims_db.Load();
-                crims_db.Change(changesDataGrid.SelectedItem as RecordChange);
-                crims_db.Save();
-                crims_db = null;
+                crimsDB = new CriminalRecordsDatabase();
+                crimsDB = (CriminalRecordsDatabase)crimsDB.Load();
+                crimsDB.Change(changesDataGrid.SelectedItem as RecordChange);
+                crimsDB.Save();
+                crimsDB = null;
             }
             else if ((changesDataGrid.SelectedItem as RecordChange).Destination == ChangeDestination.BandsDatabase)
             {
-                bands_db = new BandRecordsDatabase();
-                bands_db = (BandRecordsDatabase)bands_db.Load();
-                bands_db.Change(changesDataGrid.SelectedItem as RecordChange);
-                bands_db.Save();
-                bands_db = null;
+                bandsDB = new BandRecordsDatabase();
+                bandsDB = (BandRecordsDatabase)bandsDB.Load();
+                bandsDB.Change(changesDataGrid.SelectedItem as RecordChange);
+                bandsDB.Save();
+                bandsDB = null;
             }
             else if ((changesDataGrid.SelectedItem as RecordChange).Destination == ChangeDestination.CriminalsArchive)
             {
-                crims_arch = new CriminalRecordsArchive();
-                crims_arch = (CriminalRecordsArchive)crims_arch.Load();
-                crims_arch.Change(changesDataGrid.SelectedItem as RecordChange);
-                crims_arch.Save();
-                crims_arch = null;
+                crimsArchive = new CriminalRecordsArchive();
+                crimsArchive = (CriminalRecordsArchive)crimsArchive.Load();
+                crimsArchive.Change(changesDataGrid.SelectedItem as RecordChange);
+                crimsArchive.Save();
+                crimsArchive = null;
             }
 
-            changes_db.Delete(changesDataGrid.SelectedItem as RecordChange);
-            changes_db.Save();
+            changesDB.Delete(changesDataGrid.SelectedItem as RecordChange);
+            changesDB.Save();
             CollectionViewSource.GetDefaultView(changesDataGrid.ItemsSource).Refresh();
         }
 
         private void deleteChangeMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            changes_db.Delete(changesDataGrid.SelectedItem as RecordChange);
-            changes_db.Save();
+            changesDB.Delete(changesDataGrid.SelectedItem as RecordChange);
+            changesDB.Save();
             CollectionViewSource.GetDefaultView(changesDataGrid.ItemsSource).Refresh();
         }
 

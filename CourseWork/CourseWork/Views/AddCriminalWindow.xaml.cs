@@ -55,10 +55,10 @@ namespace CourseWork.Views
                 db_crims.Save();
             }else
             {
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changes_db.Add(change);
-                changes_db.Save();
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDB.Add(change);
+                changesDB.Save();
             }
             
             this.Close();

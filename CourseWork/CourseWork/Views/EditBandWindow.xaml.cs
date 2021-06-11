@@ -22,7 +22,6 @@ namespace CourseWork.Views
     {
         private RecordChange recordChange;
         private Session session;
-        private ChangeDestination destination;
 
         public EditBandWindow(BandRecord from, Session sess, ChangeDestination destination)
         {
@@ -60,17 +59,17 @@ namespace CourseWork.Views
 
             if(session.User.Role == UserRole.Admin)
             {
-                BandRecordsDatabase bands_db = new BandRecordsDatabase();
-                bands_db = (BandRecordsDatabase)bands_db.Load();
-                bands_db.Change(recordChange);
-                bands_db.Save();
+                BandRecordsDatabase bandsDB = new BandRecordsDatabase();
+                bandsDB = (BandRecordsDatabase)bandsDB.Load();
+                bandsDB.Change(recordChange);
+                bandsDB.Save();
             }
             else
             {
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changes_db.Add(recordChange);
-                changes_db.Save();
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDB.Add(recordChange);
+                changesDB.Save();
             }
             
             this.Close();

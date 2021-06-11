@@ -9,14 +9,14 @@ namespace CourseWork.Models
     [Serializable]
     public abstract class RecordDatabase : Database
     {
-        public long next_id = 0;
+        public long nextID;
         public List<Record> Records { get; protected set; }
         public virtual void Change(RecordChange change)
         {
             bool f = true;
             if(change.Type == ChangeType.Add)
             {
-                change.To.ID = next_id++;
+                change.To.ID = nextID++;
                 Records.Add(change.To);
             }else if(change.Type == ChangeType.Edit)
             {
@@ -41,11 +41,11 @@ namespace CourseWork.Models
                 {
                     if (Records[i].ID == change.RecordID)
                     {
-                        CriminalRecordsArchive crims_archive = new CriminalRecordsArchive();
-                        crims_archive = (CriminalRecordsArchive)crims_archive.Load();
+                        CriminalRecordsArchive crimsArchiveive = new CriminalRecordsArchive();
+                        crimsArchiveive = (CriminalRecordsArchive)crimsArchiveive.Load();
                         RecordChange archiveAddChange = new RecordChange(null, change.To, ChangeType.Add, ChangeDestination.CriminalsArchive, "");
-                        crims_archive.Change(archiveAddChange);
-                        crims_archive.Save();
+                        crimsArchiveive.Change(archiveAddChange);
+                        crimsArchiveive.Save();
                         Records.RemoveAt(i);
                         --i;
                         break;

@@ -13,6 +13,7 @@ namespace CourseWork.Models
         {
             Records = new List<Record>();
             type = "CriminalRecordsDatabase";
+            nextID = 0;
         }
         
     }

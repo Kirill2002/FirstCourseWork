@@ -34,8 +34,8 @@ namespace CourseWork.Views
 
         private void authorisationButton_Click(object sender, RoutedEventArgs e)
         {
-            UsersDatabase users_db = new UsersDatabase();
-            users_db = (UsersDatabase)users_db.Load();
+            UsersDatabase usersDB = new UsersDatabase();
+            usersDB = (UsersDatabase)usersDB.Load();
 
             usernameTextBoxBorder.Background = new SolidColorBrush(Colors.Transparent);
             passwordBoxBorder.Background = new SolidColorBrush(Colors.Transparent);
@@ -44,23 +44,23 @@ namespace CourseWork.Views
             passwordBox.ClearValue(PasswordBox.ToolTipProperty);
 
             int i = 0;
-            for(i = 0; i < users_db.Users.Count; ++i)
+            for(i = 0; i < usersDB.Users.Count; ++i)
             {
-                if (users_db.Users[i].Username == usernameTextBox.Text)
+                if (usersDB.Users[i].Username == usernameTextBox.Text)
                     break;
             }
 
-            if (i == users_db.Users.Count)
+            if (i == usersDB.Users.Count)
             {
                 usernameTextBoxBorder.Background = Constants.WRONG_INPUT_COLOR;
                 usernameTextBox.ToolTip = "Невірне ім'я";
             }
             else
             {
-                if (users_db.Users[i].Password == passwordBox.Password)
+                if (usersDB.Users[i].Password == passwordBox.Password)
                 {
                     this.DialogResult = true;
-                    User = users_db.Users[i];
+                    User = usersDB.Users[i];
                     this.Close();
                 }
                 else

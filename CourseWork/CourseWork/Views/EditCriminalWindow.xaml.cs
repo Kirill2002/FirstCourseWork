@@ -72,22 +72,22 @@ namespace CourseWork.Views
             if(session.User.Role == UserRole.Admin)
             {
 
-                CriminalRecordsDatabase crims_db = new CriminalRecordsDatabase();
-                crims_db = (CriminalRecordsDatabase)crims_db.Load();
-                crims_db.Change(recordChange);
-                crims_db.Save();
+                CriminalRecordsDatabase crimsDB = new CriminalRecordsDatabase();
+                crimsDB = (CriminalRecordsDatabase)crimsDB.Load();
+                crimsDB.Change(recordChange);
+                crimsDB.Save();
 
-                CriminalRecordsArchive crims_arch = new CriminalRecordsArchive();
-                crims_arch = (CriminalRecordsArchive)crims_arch.Load();
-                crims_arch.Change(recordChange);
-                crims_arch.Save();
+                CriminalRecordsArchive crimsArchive = new CriminalRecordsArchive();
+                crimsArchive = (CriminalRecordsArchive)crimsArchive.Load();
+                crimsArchive.Change(recordChange);
+                crimsArchive.Save();
             }
             else
             {
-                RecordChangesDatabase changes_db = new RecordChangesDatabase();
-                changes_db = (RecordChangesDatabase)changes_db.Load();
-                changes_db.Add(recordChange);
-                changes_db.Save();  
+                RecordChangesDatabase changesDB = new RecordChangesDatabase();
+                changesDB = (RecordChangesDatabase)changesDB.Load();
+                changesDB.Add(recordChange);
+                changesDB.Save();  
             }
 
             

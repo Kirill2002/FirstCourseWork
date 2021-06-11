@@ -40,15 +40,15 @@ namespace CourseWork.Views
 
             if(accessCodeTextBox.Text == "12345678")
             {
-                UsersDatabase users_db = new UsersDatabase();
-                users_db = (UsersDatabase)users_db.Load();
+                UsersDatabase usersDB = new UsersDatabase();
+                usersDB = (UsersDatabase)usersDB.Load();
                 int i = 0;
-                for(i = 0; i < users_db.Users.Count; ++i)
+                for(i = 0; i < usersDB.Users.Count; ++i)
                 {
-                    if (users_db.Users[i].Username == usernameTextBox.Text)
+                    if (usersDB.Users[i].Username == usernameTextBox.Text)
                         break;
                 }
-                if(i == users_db.Users.Count &&  usernameTextBox.Text.Length >= 1)
+                if(i == usersDB.Users.Count &&  usernameTextBox.Text.Length >= 1)
                 {
                     if(passwordBox.Password.Length < 8)
                     {
@@ -60,8 +60,8 @@ namespace CourseWork.Views
                         repeatPasswordBox.ToolTip = "Паролі не співпадають";
                     }else
                     {
-                        users_db.Users.Add(new User(usernameTextBox.Text, passwordBox.Password, UserRole.Admin));
-                        users_db.Save();
+                        usersDB.Users.Add(new User(usernameTextBox.Text, passwordBox.Password, UserRole.Admin));
+                        usersDB.Save();
                         this.Close();
                     }
                 }else if(usernameTextBox.Text.Length == 0)
@@ -75,15 +75,15 @@ namespace CourseWork.Views
                 }
             }else if(accessCodeTextBox.Text == "11111111")
             {
-                UsersDatabase users_db = new UsersDatabase();
-                users_db = (UsersDatabase)users_db.Load();
+                UsersDatabase usersDB = new UsersDatabase();
+                usersDB = (UsersDatabase)usersDB.Load();
                 int i = 0;
-                for (i = 0; i < users_db.Users.Count; ++i)
+                for (i = 0; i < usersDB.Users.Count; ++i)
                 {
-                    if (users_db.Users[i].Username == usernameTextBox.Text)
+                    if (usersDB.Users[i].Username == usernameTextBox.Text)
                         break;
                 }
-                if (i == users_db.Users.Count && usernameTextBox.Text.Length >= 1)
+                if (i == usersDB.Users.Count && usernameTextBox.Text.Length >= 1)
                 {
                     if (passwordBox.Password.Length < 8)
                     {
@@ -97,8 +97,8 @@ namespace CourseWork.Views
                     }
                     else
                     {
-                        users_db.Users.Add(new User(usernameTextBox.Text, passwordBox.Password, UserRole.User));
-                        users_db.Save();
+                        usersDB.Users.Add(new User(usernameTextBox.Text, passwordBox.Password, UserRole.User));
+                        usersDB.Save();
                         this.Close();
                     }
                 }else if (usernameTextBox.Text.Length == 0)
