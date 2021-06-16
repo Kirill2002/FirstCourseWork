@@ -9,7 +9,6 @@ namespace CourseWork.Models
     [Serializable]
     public class BandRecordsDatabase : RecordDatabase
     {
-
         public BandRecordsDatabase()
         {
             Records = new List<Record>();

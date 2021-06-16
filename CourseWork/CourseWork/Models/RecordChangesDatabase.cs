@@ -11,7 +11,7 @@ namespace CourseWork.Models
     {
         public List<RecordChange> RecordChanges { get; set; }
 
-        public long nextChangeID = 0;
+        public static long nextChangeID = 0;
 
         public RecordChangesDatabase()
         {

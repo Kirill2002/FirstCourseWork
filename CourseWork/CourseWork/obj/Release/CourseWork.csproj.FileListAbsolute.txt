@@ -43,3 +43,7 @@ D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.csproj.CoreCom
 D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.csproj.CopyComplete
 D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.exe
 D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.pdb
+D:\C#\OOP\CourseWork\CourseWork\CourseWork\bin\Release\CourseWork.exe.manifest
+D:\C#\OOP\CourseWork\CourseWork\CourseWork\bin\Release\CourseWork.application
+D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.exe.manifest
+D:\C#\OOP\CourseWork\CourseWork\CourseWork\obj\Release\CourseWork.application
