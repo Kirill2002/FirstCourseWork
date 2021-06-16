@@ -1,6 +1,7 @@
 ﻿using CourseWork.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,38 @@ namespace CourseWork.Views
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void printButton_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                okButton.Visibility = Visibility.Hidden;
+                printButton.Visibility = Visibility.Hidden;
+                printDialog.PrintVisual(grid, "Print criminal");
+                okButton.Visibility = Visibility.Visible;
+                printButton.Visibility = Visibility.Visible;
+            }
+
+            okButton.Visibility = Visibility.Hidden;
+            printButton.Visibility = Visibility.Hidden;
+
+
+            RenderTargetBitmap renderTargetBitmap =
+                 new RenderTargetBitmap(800, 800, 96, 96, PixelFormats.Pbgra32);
+            renderTargetBitmap.Render(grid);
+            PngBitmapEncoder pngImage = new PngBitmapEncoder();
+            pngImage.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+            string path = Environment.CurrentDirectory + "\\" + Constants.IMAGES_PATH;
+
+            using (Stream fileStream = File.Create(path + "\\" + Directory.GetFiles(path).Length.ToString() + ".png"))
+            {
+                pngImage.Save(fileStream);
+            }
+
+            okButton.Visibility = Visibility.Visible;
+            printButton.Visibility = Visibility.Visible;
         }
     }
 }

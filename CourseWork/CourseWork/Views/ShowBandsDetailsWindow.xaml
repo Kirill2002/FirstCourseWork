@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="ShowBandsDetailsWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition></RowDefinition>
@@ -44,7 +44,7 @@
         </StackPanel>
 
 
-
+        <Button x:Name="printButton" Grid.Row="7" Grid.Column="2" Content="Надрукувати" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="printButton_Click"></Button>
         <Button x:Name="okButton" Grid.Row="7" Grid.Column="3" Content="Ок" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="okButton_Click"/>
 
     </Grid>

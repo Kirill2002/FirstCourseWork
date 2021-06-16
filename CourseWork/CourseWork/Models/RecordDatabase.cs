@@ -9,7 +9,7 @@ namespace CourseWork.Models
     [Serializable]
     public abstract class RecordDatabase : Database
     {
-        public long nextID;
+        public long nextID = 0;
         public List<Record> Records { get; protected set; }
         public virtual void Change(RecordChange change)
         {
